@@ -9,7 +9,80 @@ import sys
 
 System_URL = "https://presence.archerdev.xyz/"
 
-VERSION = 2.0
+VERSION = 2.5
+GITAccessToken = "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"
+
+class update():
+    def __init__(self):
+        self.current_version = VERSION  # Ensure VERSION is defined elsewhere in your code
+        self.latest_version_url = "https://raw.githubusercontent.com/Senya29/PBPDRelease/main/version.txt"
+        self.update_url = "https://raw.githubusercontent.com/Senya29/PBPDRelease/main/main.py"
+        self.headers = {
+            'Authorization': f'Bearer {GITAccessToken}'
+        }
+
+    def check_for_update(self):
+        try:
+            # Request the latest version
+            latest_version_response = requests.get(self.latest_version_url, headers=self.headers)
+            
+            # Check if the request was successful
+            if latest_version_response.status_code == 200:
+                # Get the version number from the response content
+                latest_version = latest_version_response.content.decode().strip()
+
+                try:
+                    # Try to convert the version string to a float
+                    latest_version = float(latest_version)
+
+                    if latest_version > self.current_version:
+                        print("Update Available!")
+                        print("Downloading Update")
+                        time.sleep(2)
+                        self.download_update()
+                    else:
+                        print("No Update Available")
+                        input("Press Enter To Continue")
+                except ValueError:
+                    # If the version string is not a valid number, handle it gracefully
+                    print(f"Error: Invalid version format received: {latest_version}")
+                    input("Press Enter To Continue")
+            else:
+                # If the request was not successful, print the error message
+                print(f"Error: Failed to fetch version. HTTP status code: {latest_version_response.status_code}")
+                print(f"Response: {latest_version_response.text}")
+                input("Press Enter To Continue")
+        except Exception as e:
+            print(e)
+            print("Failed to check for update")
+            input("Press Enter To Continue")
+
+    def download_update(self):
+        try:
+            # Request the update file (main.py)
+            update = requests.get(self.update_url, headers=self.headers)
+            
+            # Check if the response is valid
+            if update.status_code == 200:
+                with open("main.py", "w") as file:
+                    file.write(update.content.decode())
+                print("Update Complete")
+                input("Press Enter To Continue")
+                os.execl("start.bat", "start.bat")  # Assuming start.bat is in the correct directory
+                sys.exit()
+            else:
+                print("Failed to download update. HTTP status code:", update.status_code)
+                input("Press Enter To Continue")
+                sys.exit()
+        except Exception as e:
+            print(e)
+            print("Failed to download update")
+            input("Press Enter To Continue")
+            sys.exit()
+
+
+
+
 
 class main:
     def __init__(self):
@@ -207,5 +280,5 @@ class main:
 
         input("Press Enter To Close Presence System")
 
-        
+update().check_for_update()
 main().main()
