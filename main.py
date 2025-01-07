@@ -9,7 +9,7 @@ import sys
 
 System_URL = "https://presence.archerdev.xyz/"
 
-VERSION = 2.2
+VERSION = 2.3
 
 GITAccessToken = "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"
 
