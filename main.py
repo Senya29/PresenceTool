@@ -290,13 +290,16 @@ class options:
             print(f"Welcome to the Options Menu {self.name}")
             print("Please Select a Option")
             print("1. Update")
-            print("2. Exit")
+            print("2. Factory Reset")
+            print("3. Exit")
             choice = input("Please Select One: ")
             if choice == "1":
                 print("Passing Update, and installing latest version")
                 update().download_update()
                 sys.exit()
             elif choice == "2":
+                self.factory_reset()
+            elif choice == "3":
                 return
             else:
                 print("Invalid Choice")
