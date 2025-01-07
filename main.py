@@ -11,7 +11,11 @@ System_URL = "https://presence.archerdev.xyz/"
 
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 VERSION = 2.1
+=======
+VERSION = 2.2
+>>>>>>> Stashed changes
 =======
 VERSION = 2.2
 >>>>>>> Stashed changes
@@ -302,7 +306,11 @@ class options:
             print("2. Factory Reset")
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
             print("3. Join ADC Discord")
+=======
+            print("3. Reload Departments")
+>>>>>>> Stashed changes
 =======
             print("3. Reload Departments")
 >>>>>>> Stashed changes
@@ -320,8 +328,14 @@ class options:
             elif choice == "3":
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
                 print("Opening ADC Discord")
                 os.system("start https://discord.gg/Wvs8TuBUBE")
+=======
+                main_class.depts = main_class.loadable_departments()
+                print("Reloaded Departments")
+                time.sleep(2)
+>>>>>>> Stashed changes
 =======
                 main_class.depts = main_class.loadable_departments()
                 print("Reloaded Departments")
