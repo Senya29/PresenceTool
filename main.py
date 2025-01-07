@@ -9,14 +9,14 @@ import sys
 
 System_URL = "https://presence.archerdev.xyz/"
 
-VERSION = 2.0
+VERSION = 2.1
 GITAccessToken = "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"
 
 class update():
     def __init__(self):
         self.current_version = VERSION  # Ensure VERSION is defined elsewhere in your code
-        self.latest_version_url = "https://raw.githubusercontent.com/Senya29/PBPDRelease/main/version.txt"
-        self.update_url = "https://raw.githubusercontent.com/Senya29/PBPDRelease/main/main.py"
+        self.latest_version_url = "https://raw.githubusercontent.com/Senya29/PBPDRelease/release/version.txt"
+        self.update_url = "https://raw.githubusercontent.com/Senya29/PBPDRelease/release/main.py"
         self.headers = {
             'Authorization': f'Bearer {GITAccessToken}'
         }
@@ -291,7 +291,8 @@ class options:
             print("Please Select a Option")
             print("1. Update")
             print("2. Factory Reset")
-            print("3. Exit")
+            print("3. Join ADC Discord")
+            print("4. Exit")
             choice = input("Please Select One: ")
             if choice == "1":
                 print("Passing Update, and installing latest version")
@@ -300,6 +301,9 @@ class options:
             elif choice == "2":
                 self.factory_reset()
             elif choice == "3":
+                print("Opening ADC Discord")
+                os.system("start https://discord.gg/Wvs8TuBUBE")
+            elif choice == "4":
                 return
             else:
                 print("Invalid Choice")
