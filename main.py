@@ -69,17 +69,49 @@ class main:
     def main(self):
         while True:
             utils.clear_screen()
+            print("Welcome to the Presence System")
+            print(f"Name: {self.name}")
+            print(f"Avaliable Presences: {len(self.depts)}")
+            print("Please Select a Option")
+            print("1. Select Department")
+            print("2. Change My Name")
+            print("3. Exit")
+            choice = input("Please Select One: ")
+            if choice == "1":
+                self.select_department_run()
+            elif choice == "2":
+                print("Please Enter You're Name")
+                name = input("Name: ")
+                print("Saving Data")
+                with open("data/config.json", "w") as config_raw:
+                    config_to_load = {
+                        "name" : f"{name}"
+                    }
+                    json.dump(config_to_load, config_raw)
+                self.name = name
+            elif choice == "3":
+                sys.exit()
+            else:
+                print("Invalid Choice")
+                input("Press Enter To Continue")
+
+    def select_department_run(self):
+        while True:
+            utils.clear_screen()
             print(f"Welcome: {self.name}")
-            print("Please Select a Department Below")
+            print("Please Select a Department Below | EXIT To Return to Main Menu")
             count = 1
             for i in self.depts:
                 print(f"{count}. {i}")
                 count += 1
 
             choice = input("Please Select One: ")
-            if choice == "DEV":
-                print("ENTERING DEV MODE")
-                sys.exit()
+            if choice.lower() == "exit":
+                return
+            
+            if choice.isdigit() == False:
+                print("Invalid Choice")
+                input("Press Enter To Continue")
             self.chosen_dept = int(choice) - 1
 
             result = self.Init_Dept()
@@ -87,6 +119,7 @@ class main:
             if result == False:
                 self.Init_Dept()
             self.RPC_START()
+            return
 
     def Init_Dept(self):
         utils.clear_screen()
@@ -173,6 +206,6 @@ class main:
             sys.exit()
 
         input("Press Enter To Close Presence System")
-        sys.exit()
+
         
 main().main()
