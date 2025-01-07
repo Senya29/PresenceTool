@@ -301,6 +301,14 @@ class options:
             else:
                 print("Invalid Choice")
                 input("Press Enter To Continue")
+    
+    def factory_reset(self):
+        for file in os.listdir("data"):
+            os.remove(f"data/{file}")
+        print("Factory Reset Complete")
+        time.sleep(2)
+        os.execl("start.bat", "start.bat")  # Assuming start.bat is in the correct directory
+        sys.exit()
         
 
 update().check_for_update()
