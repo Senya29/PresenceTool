@@ -9,7 +9,8 @@ import sys
 
 System_URL = "https://presence.archerdev.xyz/"
 
-VERSION = 2.1
+VERSION = 2.2
+
 GITAccessToken = "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"
 
 class update():
@@ -93,7 +94,6 @@ class main:
         self.rank = None
         self.pos_type = None
         self.callsign = None
-
     def main_load(self):
         utils.clear_screen()
         # get config
@@ -280,11 +280,13 @@ class main:
         input("Press Enter To Close Presence System")
         RPC.close()
 
+
+
 class options:
     def __init__(self, name):
         self.name = name
     
-    def main(self):
+    def main(self, main_class: main):
         while True:
             utils.clear_screen()
             print(f"Welcome to the Options Menu {self.name}")
@@ -292,7 +294,8 @@ class options:
             print("1. Update")
             print("2. Factory Reset")
             print("3. Join ADC Discord")
-            print("4. Exit")
+            print("4. Reload Departments")
+            print("5. Exit")
             choice = input("Please Select One: ")
             if choice == "1":
                 print("Passing Update, and installing latest version")
@@ -304,6 +307,10 @@ class options:
                 print("Opening ADC Discord")
                 os.system("start https://discord.gg/Wvs8TuBUBE")
             elif choice == "4":
+                main_class.depts = main_class.loadable_departments()
+                print("Reloaded Departments")
+                time.sleep(2)
+            elif choice == "5":
                 return
             else:
                 print("Invalid Choice")
