@@ -9,7 +9,7 @@ import sys
 
 System_URL = "https://presence.archerdev.xyz/"
 
-    
+VERSION = 2.0
 
 class main:
     def __init__(self):
