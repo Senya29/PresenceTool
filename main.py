@@ -9,19 +9,8 @@ import sys
 
 System_URL = "https://presence.archerdev.xyz/"
 
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-VERSION = 2.1
-=======
 VERSION = 2.2
->>>>>>> Stashed changes
-=======
-VERSION = 2.2
->>>>>>> Stashed changes
-=======
-VERSION = 2.2
->>>>>>> Stashed changes
+
 GITAccessToken = "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"
 
 class update():
@@ -304,20 +293,9 @@ class options:
             print("Please Select a Option")
             print("1. Update")
             print("2. Factory Reset")
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
             print("3. Join ADC Discord")
-=======
-            print("3. Reload Departments")
->>>>>>> Stashed changes
-=======
-            print("3. Reload Departments")
->>>>>>> Stashed changes
-=======
-            print("3. Reload Departments")
->>>>>>> Stashed changes
-            print("4. Exit")
+            print("4. Reload Departments")
+            print("5. Exit")
             choice = input("Please Select One: ")
             if choice == "1":
                 print("Passing Update, and installing latest version")
@@ -326,27 +304,13 @@ class options:
             elif choice == "2":
                 self.factory_reset()
             elif choice == "3":
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
                 print("Opening ADC Discord")
                 os.system("start https://discord.gg/Wvs8TuBUBE")
-=======
-                main_class.depts = main_class.loadable_departments()
-                print("Reloaded Departments")
-                time.sleep(2)
->>>>>>> Stashed changes
-=======
-                main_class.depts = main_class.loadable_departments()
-                print("Reloaded Departments")
-                time.sleep(2)
->>>>>>> Stashed changes
-=======
-                main_class.depts = main_class.loadable_departments()
-                print("Reloaded Departments")
-                time.sleep(2)
->>>>>>> Stashed changes
             elif choice == "4":
+                main_class.depts = main_class.loadable_departments()
+                print("Reloaded Departments")
+                time.sleep(2)
+            elif choice == "5":
                 return
             else:
                 print("Invalid Choice")
