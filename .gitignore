@@ -1,3 +1,2 @@
-.json
-version.txt
 *.json
+__pycache__/
