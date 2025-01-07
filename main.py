@@ -9,7 +9,7 @@ import sys
 
 System_URL = "https://presence.archerdev.xyz/"
 
-VERSION = 2.5
+VERSION = 3.0
 GITAccessToken = "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"
 
 class update():
@@ -35,14 +35,14 @@ class update():
                     # Try to convert the version string to a float
                     latest_version = float(latest_version)
 
-                    if latest_version > self.current_version:
+                    if latest_version != self.current_version:
                         print("Update Available!")
                         print("Downloading Update")
                         time.sleep(2)
                         self.download_update()
                     else:
                         print("No Update Available")
-                        input("Press Enter To Continue")
+                        time.sleep(2)
                 except ValueError:
                     # If the version string is not a valid number, handle it gracefully
                     print(f"Error: Invalid version format received: {latest_version}")
