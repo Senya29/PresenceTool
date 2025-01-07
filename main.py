@@ -9,7 +9,7 @@ import sys
 
 System_URL = "https://presence.archerdev.xyz/"
 
-VERSION = 3.2
+VERSION = 3.21
 GITAccessToken = "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"
 
 class update():
@@ -142,7 +142,7 @@ class main:
     def main(self):
         while True:
             utils.clear_screen()
-            print("Welcome to the Presence System")
+            print(f"Welcome to the Presence System Version: {VERSION}")
             print(f"Name: {self.name}")
             print(f"Avaliable Presences: {len(self.depts)}")
             print("Please Select a Option")
