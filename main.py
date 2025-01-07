@@ -80,10 +80,6 @@ class update():
             input("Press Enter To Continue")
             sys.exit()
 
-
-
-
-
 class main:
     def __init__(self):
         self.config = self.main_load()
@@ -148,7 +144,8 @@ class main:
             print("Please Select a Option")
             print("1. Select Department")
             print("2. Change My Name")
-            print("3. Exit")
+            print("3. Options")
+            print("4. Exit")
             choice = input("Please Select One: ")
             if choice == "1":
                 self.select_department_run()
@@ -163,6 +160,8 @@ class main:
                     json.dump(config_to_load, config_raw)
                 self.name = name
             elif choice == "3":
+                options(self.name).main()
+            elif choice == "4":
                 sys.exit()
             else:
                 print("Invalid Choice")
@@ -280,6 +279,29 @@ class main:
 
         input("Press Enter To Close Presence System")
         RPC.close()
+
+class options:
+    def __init__(self, name):
+        self.name = name
+    
+    def main(self):
+        while True:
+            utils.clear_screen()
+            print(f"Welcome to the Options Menu {self.name}")
+            print("Please Select a Option")
+            print("1. Update")
+            print("2. Exit")
+            choice = input("Please Select One: ")
+            if choice == "1":
+                print("Passing Update, and installing latest version")
+                update().download_update()
+                sys.exit()
+            elif choice == "2":
+                return
+            else:
+                print("Invalid Choice")
+                input("Press Enter To Continue")
+        
 
 update().check_for_update()
 main().main()
