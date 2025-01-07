@@ -15,8 +15,8 @@ GITAccessToken = "github_pat_11AZDY4RA0OB6oH1fRW683_nPpeLS0OhXBQiyYujq3DBtE0pBpq
 class update():
     def __init__(self):
         self.current_version = VERSION  # Ensure VERSION is defined elsewhere in your code
-        self.latest_version_url = "https://raw.githubusercontent.com/Senya29/PBPDRelease/main/version.txt"
-        self.update_url = "https://raw.githubusercontent.com/Senya29/PBPDRelease/main/main.py"
+        self.latest_version_url = "https://raw.githubusercontent.com/Senya29/PBPDRelease/release/version.txt"
+        self.update_url = "https://raw.githubusercontent.com/Senya29/PBPDRelease/release/main.py"
         self.headers = {
             'Authorization': f'Bearer {GITAccessToken}'
         }
