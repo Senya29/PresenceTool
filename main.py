@@ -160,7 +160,7 @@ class main:
                     json.dump(config_to_load, config_raw)
                 self.name = name
             elif choice == "3":
-                options(self.name).main()
+                options(self.name).main(self)
             elif choice == "4":
                 sys.exit()
             else:
