@@ -1,5 +1,9 @@
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 2.1
+=======
+2.2
+>>>>>>> Stashed changes
 =======
 2.2
 >>>>>>> Stashed changes
