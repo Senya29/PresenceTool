@@ -9,7 +9,11 @@ import sys
 
 System_URL = "https://presence.archerdev.xyz/"
 
+<<<<<<< Updated upstream
 VERSION = 2.1
+=======
+VERSION = 2.2
+>>>>>>> Stashed changes
 GITAccessToken = "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"
 
 class update():
@@ -93,7 +97,6 @@ class main:
         self.rank = None
         self.pos_type = None
         self.callsign = None
-
     def main_load(self):
         utils.clear_screen()
         # get config
@@ -280,18 +283,24 @@ class main:
         input("Press Enter To Close Presence System")
         RPC.close()
 
+
+
 class options:
     def __init__(self, name):
         self.name = name
     
-    def main(self):
+    def main(self, main_class: main):
         while True:
             utils.clear_screen()
             print(f"Welcome to the Options Menu {self.name}")
             print("Please Select a Option")
             print("1. Update")
             print("2. Factory Reset")
+<<<<<<< Updated upstream
             print("3. Join ADC Discord")
+=======
+            print("3. Reload Departments")
+>>>>>>> Stashed changes
             print("4. Exit")
             choice = input("Please Select One: ")
             if choice == "1":
@@ -301,8 +310,14 @@ class options:
             elif choice == "2":
                 self.factory_reset()
             elif choice == "3":
+<<<<<<< Updated upstream
                 print("Opening ADC Discord")
                 os.system("start https://discord.gg/Wvs8TuBUBE")
+=======
+                main_class.depts = main_class.loadable_departments()
+                print("Reloaded Departments")
+                time.sleep(2)
+>>>>>>> Stashed changes
             elif choice == "4":
                 return
             else:
