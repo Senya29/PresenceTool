@@ -9,7 +9,7 @@ import sys
 
 System_URL = "https://presence.archerdev.xyz/"
 
-VERSION = 3.1
+VERSION = 3.2
 GITAccessToken = "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"
 
 class update():
@@ -35,7 +35,7 @@ class update():
                     # Try to convert the version string to a float
                     latest_version = float(latest_version)
 
-                    if latest_version != self.current_version:
+                    if latest_version > self.current_version:
                         print("Update Available!")
                         print("Downloading Update")
                         time.sleep(2)
@@ -67,7 +67,7 @@ class update():
                 with open("main.py", "w") as file:
                     file.write(update.content.decode())
                 print("Update Complete")
-                input("Press Enter To Continue")
+                time.sleep(2)
                 os.execl("start.bat", "start.bat")  # Assuming start.bat is in the correct directory
                 sys.exit()
             else:
