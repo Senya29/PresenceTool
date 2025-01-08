@@ -9,7 +9,7 @@ import sys
 
 System_URL = "https://presence.archerdev.xyz/"
 
-VERSION = 2.2
+VERSION = 2.3
 
 
 class update():
