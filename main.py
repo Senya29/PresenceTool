@@ -11,21 +11,17 @@ System_URL = "https://presence.archerdev.xyz/"
 
 VERSION = 2.3
 
-GITAccessToken = "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"
 
 class update():
     def __init__(self):
         self.current_version = VERSION  # Ensure VERSION is defined elsewhere in your code
-        self.latest_version_url = "https://raw.githubusercontent.com/Senya29/PBPDRelease/release/version.txt"
-        self.update_url = "https://raw.githubusercontent.com/Senya29/PBPDRelease/release/main.py"
-        self.headers = {
-            'Authorization': f'Bearer {GITAccessToken}'
-        }
+        self.latest_version_url = "https://raw.githubusercontent.com/Senya29/PBPDRelease/main/version.txt"
+        self.update_url = "https://raw.githubusercontent.com/Senya29/PBPDRelease/main/main.py"
 
     def check_for_update(self):
         try:
             # Request the latest version
-            latest_version_response = requests.get(self.latest_version_url, headers=self.headers)
+            latest_version_response = requests.get(self.latest_version_url)
             
             # Check if the request was successful
             if latest_version_response.status_code == 200:
@@ -61,7 +57,7 @@ class update():
     def download_update(self):
         try:
             # Request the update file (main.py)
-            update = requests.get(self.update_url, headers=self.headers)
+            update = requests.get(self.update_url)
             
             # Check if the response is valid
             if update.status_code == 200:
@@ -146,6 +142,7 @@ class main:
             print("2. Change My Name")
             print("3. Options")
             print("4. Exit")
+            print("5. Logout")
             choice = input("Please Select One: ")
             if choice == "1":
                 self.select_department_run()
@@ -280,8 +277,6 @@ class main:
         input("Press Enter To Close Presence System")
         RPC.close()
 
-
-
 class options:
     def __init__(self, name):
         self.name = name
@@ -325,5 +320,5 @@ class options:
         sys.exit()
         
 
-update().check_for_update()
+# update().check_for_update()
 main().main()
