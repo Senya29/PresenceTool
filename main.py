@@ -15,8 +15,8 @@ VERSION = 2.3
 class update():
     def __init__(self):
         self.current_version = VERSION  # Ensure VERSION is defined elsewhere in your code
-        self.latest_version_url = "https://raw.githubusercontent.com/Senya29/PBPDRelease/main/version.txt"
-        self.update_url = "https://raw.githubusercontent.com/Senya29/PBPDRelease/main/main.py"
+        self.latest_version_url = "https://raw.githubusercontent.com/Senya29/PresenceTool/main/version.txt"
+        self.update_url = "https://raw.githubusercontent.com/Senya29/PresenceTool/main/main.py"
 
     def check_for_update(self):
         try:
